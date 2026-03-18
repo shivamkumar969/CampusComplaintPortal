@@ -31,7 +31,7 @@ Built using **ASP.NET MVC + SQL Server + Bootstrap**.
 
 ### 🏠 Home Page
 
-![Home](Screenshots/home.png)
+![Home](screenshorts/Home.png)
 
 ### 🔐 Login Page
 
