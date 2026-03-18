@@ -56,7 +56,7 @@ Built using **ASP.NET MVC + SQL Server + Bootstrap**.
 👉 (Add your link here after hosting)
 
 Example:
-https://yourprojectname.somee.com
+https://campuscomplaint.somee.com/
 
 ---
 
