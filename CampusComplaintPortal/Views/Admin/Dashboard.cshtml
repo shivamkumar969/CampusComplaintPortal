@@ -1,0 +1,110 @@
+﻿
+@model List<CampusComplaintPortal.Models.complaintmaster>
+
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h4>DASHBOARD</h4>
+
+<div class="row mt-4">
+
+    <div class="col-md-3">
+        <div class="card-box text-center">
+            <h6>Total Complaints</h6>
+            <h3 class="text-primary">@ViewBag.total</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-box text-center">
+            <h6>Pending</h6>
+            <h3 class="text-warning">@ViewBag.pending</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-box text-center">
+            <h6>In Progress</h6>
+            <h3 class="text-info">@ViewBag.progress</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-box text-center">
+            <h6>Fixed</h6>
+            <h3 class="text-success">@ViewBag.fixeds</h3>
+        </div>
+    </div>
+
+</div>
+<!-- Recent Complaints Table -->
+
+<div class="mt-5">
+
+    <h5>Recent Complaints</h5>
+
+    <table class="table table-bordered bg-white mt-3">
+
+        <thead class="table-light">
+            <tr>
+                <th>Complaint ID</th>
+                <th>Student Name</th>
+                <th>Facility Type</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Report Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model.Take(5))
+                {
+                    <tr>
+                        <td>@item.ComplaintNo</td>
+                        <td>
+                            @(item.registermaster != null ? item.registermaster.Name : "N/A")
+                        </td>
+
+                        <td>@item.FacilityType</td>
+
+                        <td>@item.Location</td>
+
+                        <td>
+                            @if (item.Status == "Pending")
+                            {
+                                <span class="badge badge-pending">Pending</span>
+                            }
+                            else if (item.Status == "In Progress")
+                            {
+                                <span class="badge badge-progress">In Progress</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-fixed">Fixed</span>
+                            }
+                        </td>
+                        <td>@item.ReportDate.ToString("dd MMM yyyy")</td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-danger">
+                        No complaints found
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

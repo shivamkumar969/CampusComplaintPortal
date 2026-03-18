@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+
+<style>
+    .login-box {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 50px;
+    }
+    .page-title {
+        color: #ff6a00;
+        font-weight: 700;
+    }
+    .btn-orange {
+        background: #ff6a00;
+        color: white;
+        border: none;
+    }
+    .btn-orange:hover {
+        background: #e65c00;
+        color: white;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="login-box">
+                <h3 class="text-center page-title mb-4"> Student Sign In </h3>
+                <form method="post" action="/Home/Login">
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-danger mt-2">
+                            @ViewBag.Message
+                        </div>
+                    }
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="Email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="Password" placeholder="Enter password" required>
+                    </div>
+                    <button class="btn btn-orange w-100"> Sign In </button>
+                </form>
+                <div class="text-center mt-3">
+                    <p class="text-muted">
+                        Don't have an account?
+                        <a href="/Home/JoinNow">Join Now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

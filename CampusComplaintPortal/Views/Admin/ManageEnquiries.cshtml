@@ -1,0 +1,37 @@
+﻿@model List<CampusComplaintPortal.Models.enquirymaster>
+@{
+    ViewBag.Title = "ManageEnquiries";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h4>MANAGE ENQUIRIES</h4>
+<table class="table table-bordered bg-white mt-3">
+    <thead class="table-light">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EnqId</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Mobile</td>
+                <td>@item.Subject</td>
+                <td>@item.Message</td>
+                <td>@item.EnquiryDate.ToString("dd MMM yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

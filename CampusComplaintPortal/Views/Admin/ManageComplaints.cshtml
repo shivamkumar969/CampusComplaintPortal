@@ -1,0 +1,120 @@
+﻿@model List<CampusComplaintPortal.Models.complaintmaster>
+
+@{
+    ViewBag.Title = "ManageComplaints";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<style>
+    .modal-body img {
+        max-width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    .modal-body {
+        text-align: center;
+    }
+    .modal-content {
+        border-radius: 12px;
+    }
+
+    .modal-header {
+        background: #ff6a00;
+        color: white;
+    }
+
+    .modal-title {
+        font-weight: 600;
+    }
+</style>
+<h4>MANAGE COMPLAINTS</h4>
+<table class="table table-bordered bg-white mt-3">
+    <thead>
+        <tr>
+            <th>Complaint ID</th>
+            <th>Student Name</th>
+            <th>Facility Type</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Report Date</th>
+            <th>Status Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td data-bs-toggle="modal" data-bs-target="#model_@item.Id">@item.ComplaintNo</td>
+                    <td>
+                        @(item.registermaster != null ? item.registermaster.Name : "N/A")
+                    </td>
+                    <td>@item.FacilityType</td>
+                    <td>@item.Location</td>
+                    <td>
+                        @if (item.Status == "Pending")
+                        {
+                            <span class="badge badge-pending">Pending</span>
+                        }
+                        else if (item.Status == "In Progress")
+                        {
+                            <span class="badge badge-progress">In Progress</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-fixed">Fixed</span>
+                        }
+                    </td>
+                    <td>@item.ReportDate.ToString("dd MMM yyyy")</td>
+                    <td>
+                        <form method="post" action="/Admin/UpdateStatus">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <select class="form-select" name="status">
+                                <option value="Pending" @(item.Status == "Pending" ? "selected" : "")>
+                                    Pending
+                                </option>
+                                <option value="In Progress" @(item.Status == "In Progress" ? "selected" : "")>
+                                    In Progress
+                                </option>
+                                <option value="Fixed" @(item.Status == "Fixed" ? "selected" : "")>
+                                    Fixed
+                                </option>
+                            </select>
+                            <button class="btn btn-sm btn-primary mt-2">
+                                Update
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+
+
+                <div class="modal fade" id="model_@item.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Complaint Image</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="~/ComplaintImages/@item.ImageFile" class="img-fluid rounded" style="max-height:400px;"/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7" class="text-center text-danger">
+                    No Complaints Found
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

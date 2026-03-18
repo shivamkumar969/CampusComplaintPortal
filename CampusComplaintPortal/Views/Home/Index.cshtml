@@ -1,0 +1,115 @@
+﻿@model List<CampusComplaintPortal.Models.notificationmaster>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+
+<style>
+    /* Notification */
+    .noti {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 45px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+        .noti h1 {
+            font-weight: 700;
+        }
+
+        .noti span {
+            color: #ff6a00;
+        }
+    /* Hero Section */
+    .hero {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 60px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+        .hero h1 {
+            font-weight: 700;
+        }
+
+        .hero span {
+            color: #ff6a00;
+        }
+    /* Floating Panel */
+    .float-card {
+        position: absolute;
+        right: -20px;
+        top: 80px;
+        width: 220px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 15px;
+    }
+
+        .float-card div {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+            .float-card div:last-child {
+                border: none;
+            }
+</style>
+
+<!--Notification Section-->
+<div class="noti position-relative mt-4">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1>
+                <span>Notification</span>
+            </h1>
+        </div>
+        <div class="col-md-6">
+            <h1>
+                @if (Model != null && Model.Count > 0)
+                {
+                    <marquee class="text-warning fw-bold" scrollamount="10">
+                        @foreach (var n in Model)
+                        {
+                            @n.Message <span class="mx-3">|</span>
+                        }
+                    </marquee>
+                }
+                else
+                {
+                    <span class="text-success">No Notifications Available</span>
+                }
+            </h1>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero position-relative mt-4">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1>
+                Online <br>
+                <span>Complaint Portal</span>
+            </h1>
+            <p class="text-muted">
+                The only place where your complaints are precious to us.
+                Submit your issue and get the right solution quickly.
+            </p>
+            <a class="btn btn-orange" href="/Home/ReportComplaint">Register Complaint</a>
+
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" width="250">
+        </div>
+    </div>
+
+    <!-- Floating feature panel -->
+    <div class="float-card">
+        <div>📄 Submit your complaint</div>
+        <div>🏢 Company Response</div>
+        <div>✔ Complaint resolved</div>
+    </div>
+</div>

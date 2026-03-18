@@ -1,0 +1,119 @@
+﻿@{
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+<style>
+    .complaint-box {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 30px;
+    }
+    .page-title {
+        color: #ff6a00;
+        font-weight: 700;
+        text-align: center;
+    }
+    .btn-orange {
+        background: #ff6a00;
+        color: white;
+        border: none;
+    }
+    .btn-orange:hover {
+        background: #e65c00;
+        color: white;
+    }
+    .category-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+    .category-card:hover {
+        transform: translateY(-5px);
+    }
+    .icon {
+        font-size: 30px;
+        color: #ff6a00;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="container p-0">
+    <!-- Page Title -->
+    <div class="text-center mt-4">
+        <h2 class="page-title">Report Facility Complaint</h2>
+        <p class="text-muted">
+            Report any infrastructure issue in the campus such as electrical,
+            plumbing, furniture, or cleaning problems.
+        </p>
+    </div>
+    <!-- Complaint Categories -->
+    <div class="row mt-4 text-center">
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="icon">⚡</div>
+                <h6>Electrical</h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="icon">🚰</div>
+                <h6>Plumbing</h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="icon">🪑</div>
+                <h6>Furniture</h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card">
+                <div class="icon">🧹</div>
+                <h6>Cleaning</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Complaint Form -->
+
+    <div class="complaint-box mt-4 ">
+        <h4 class="mb-4">Submit Complaint</h4>
+        <form method="post" action="/Home/ReportComplaint" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["Message"]
+                </div>
+            }
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Facility Type</label>
+                    <select class="form-select" name="FacilityType" required>
+                        <option value="">Select Facility</option>
+                        <option>Electrical</option>
+                        <option>Plumbing</option>
+                        <option>Furniture</option>
+                        <option>Cleaning</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label>Location</label>
+                    <input type="text" class="form-control" name="Location" placeholder="Example: Lab 1 / Hostel A / Room 205" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Issue Details</label>
+                <textarea class="form-control" rows="4" name="IssueDetails" placeholder="Describe the problem clearly..." style="resize: none;" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label>Upload Image (Optional)</label>
+                <input type="file" class="form-control" name="ImageFile" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-orange">Submit Complaint</button>
+        </form>
+       
+    </div>
+</div>

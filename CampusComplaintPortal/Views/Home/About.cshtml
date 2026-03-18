@@ -1,0 +1,152 @@
+﻿@{
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+
+<style>
+
+    .about-hero {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 20px;
+    }
+    .about-title {
+        color: #ff6a00;
+        font-weight: 700;
+    }
+    .feature-box {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+    .feature-box:hover {
+        transform: translateY(-5px);
+    }
+    .icon-box {
+        font-size: 35px;
+        color: #ff6a00;
+        margin-bottom: 10px;
+    }
+    .section-title {
+        margin-top: 60px;
+        font-weight: 700;
+        text-align: center;
+    }
+</style>
+
+<div class="container p-0">
+    <!-- About Hero Section -->
+    <div class="about-hero">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="about-title">
+                    Campus Facility Complaint Redressal System
+                </h2>
+                <p class="text-muted mt-3">
+                    The Campus Facility Complaint Redressal System is a digital platform designed
+                    to simplify the process of reporting and resolving infrastructure issues
+                    within the campus.
+                </p>
+                <p class="text-muted">
+                    Students and staff can easily submit complaints related to electrical,
+                    plumbing, furniture, or maintenance issues. The system allows administrators
+                    to track, manage, and resolve complaints efficiently.
+                </p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width ="250">
+            </div>
+        </div>
+    </div>
+
+    <!-- Objectives Section -->
+
+    <h3 class="section-title">Project Objectives</h3>
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="feature-box text-center">
+                <div class="icon-box">⚡</div>
+                <h5>Easy Reporting</h5>
+                <p class="text-muted">
+                    Students can quickly report campus issues through an online form.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box text-center">
+                <div class="icon-box">📊</div>
+                <h5>Better Tracking</h5>
+                <p class="text-muted">
+                    Administrators can track and manage complaints effectively.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box text-center">
+                <div class="icon-box">⏱</div>
+                <h5>Faster Resolution</h5>
+                <p class="text-muted">
+                    Maintenance teams can respond quickly and resolve issues faster.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box text-center">
+                <div class="icon-box">🏫</div>
+                <h5>Better Campus</h5>
+                <p class="text-muted">
+                    Improves campus facilities and infrastructure management.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <h3 class="section-title">How The System Works</h3>
+    <div class="row mt-4 text-center">
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h5>1️⃣ Report Issue</h5>
+                <p class="text-muted">
+                    Students submit complaints about campus infrastructure problems.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h5>2️⃣ Admin Review</h5>
+                <p class="text-muted">
+                    The admin reviews complaints and assigns maintenance staff.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h5>3️⃣ Issue Resolved</h5>
+                <p class="text-muted">
+                    The maintenance team fixes the issue and updates the status.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Section -->
+    <h3 class="section-title">Project Information</h3>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="feature-box text-center">
+                <h5>Campus Facility Complaint Redressal</h5>
+                <p class="text-muted">
+                    Developed as part of academic project for managing campus
+                    infrastructure complaints efficiently.
+                </p>
+                <p><b>Project Guide:</b> Er. Neetu Patel</p>
+                <p><b>Team:</b> <a href="/Home/Developer" class="text-dark" style="text-decoration:none;text-decoration:underline; ">Tech Titan</a></p>
+                <p><b>Organization:</b> School of Management Sciences Varanasi</p>
+            </div>
+        </div>
+    </div>
+</div>

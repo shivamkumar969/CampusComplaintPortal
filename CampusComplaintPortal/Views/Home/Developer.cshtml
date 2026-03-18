@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Development Team</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #fff5ef;
+            font-family: 'Segoe UI';
+        }
+        .team-title {
+            text-align: center;
+            margin-top: 40px;
+            font-weight: 700;
+            color: #ff6a00;
+        }
+        .team-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .team-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .role {
+            font-size: 14px;
+            color: #ff6a00;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="team-title">Project Development Team</h2>
+        <a href="/Home/Index" class="btn bg-dark text-light" style="float:right;">Go to Main Page</a>
+        <p class="team-subtitle">
+            Campus Facility Complaint Redressal System
+        </p>
+        <div class="row g-4 justify-content-center">
+            <!-- Project Leader -->
+            <div class="col-md-3">
+                <div class="team-card">
+                    <img src="~/Content/images/shivam.jpg" class="team-img"/>
+                    <h5>Shivam Kumar</h5>
+                    <p class="role">Project Leader</p>
+                    <p>Lead developer responsible for project architecture and development.</p>
+                </div>
+            </div>
+            <!-- Project Manager -->
+            <div class="col-md-3">
+                <div class="team-card">
+                    <img src="~/Content/images/ayush.jpeg" class="team-img"/>
+                    <h5>Ayush Jha</h5>
+                    <p class="role">Project Manager</p>
+                    <p>Manages project planning, coordination, and team workflow.</p>
+                </div>
+            </div>
+            <!-- Team Member -->
+            <div class="col-md-3">
+                <div class="team-card">
+                    <img src="~/Content/images/shreya.jpeg" class="team-img"/>
+                    <h5>Shreya Dubey</h5>
+                    <p class="role">Team Member</p>
+                    @*<p>Handles database design and backend functionality.</p>*@
+                </div>
+            </div>
+            <!-- Team Member -->
+            <div class="col-md-3">
+                <div class="team-card">
+                    <img src="~/Content/images/parteek.jpeg" class="team-img"/>
+                    <h5>Parteek Shankar</h5>
+                    @*<p class="role">Frontend Developer</p>*@
+                    <p class="role">Team Member</p>
+                    @*<p>Designs responsive UI using Bootstrap and Razor views.</p>*@
+                </div>
+            </div>
+            <!-- Team Member -->
+            <div class="col-md-3">
+                <div class="team-card">
+                    <img src="~/Content/images/sahil.jpeg" class="team-img" />
+                    <h5>Sahil Singh</h5>
+                    <p class="role">Team Member</p>
+                    @*<p>Responsible for testing system functionality and bug tracking.</p>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

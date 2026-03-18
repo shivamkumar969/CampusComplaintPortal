@@ -1,0 +1,125 @@
+﻿@model CampusComplaintPortal.Models.complaintmaster
+
+@{
+    ViewBag.Title = "Track Complaint";
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+
+<style>
+
+    .track-box {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 40px;
+    }
+
+    .page-title {
+        color: #ff6a00;
+        font-weight: 700;
+        text-align: center;
+    }
+</style>
+
+
+<div class="container p-0">
+
+    <div class="track-box">
+
+        <h3 class="page-title">Track Your Complaint</h3>
+
+        <p class="text-center text-muted">
+            Enter your complaint ID to check the current status
+        </p>
+
+        <!-- Search Form -->
+
+        <form method="post" action="/Home/TrackComplaint">
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-6">
+
+                    <div class="input-group">
+
+                        <input type="text"
+                               name="ComplaintNo"
+                               class="form-control"
+                               placeholder="Enter Complaint ID (Example: CFCR-101)"
+                               required />
+
+                        <button class="btn btn-warning">
+                            🔍 Track
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <!-- Result Section -->
+
+        @if (Model != null)
+        {
+
+            <div class="mt-5">
+
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th>Complaint ID</th>
+                        <td>@Model.ComplaintNo</td>
+                    </tr>
+
+                    <tr>
+                        <th>Facility Type</th>
+                        <td>@Model.FacilityType</td>
+                    </tr>
+
+                    <tr>
+                        <th>Location</th>
+                        <td>@Model.Location</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>
+                            @if (Model.Status == "Pending")
+                            {
+                                <span class="badge bg-warning text-dark">Pending</span>
+                            }
+                            else if (Model.Status == "In Progress")
+                            {
+                                <span class="badge bg-primary">In Progress</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Fixed</span>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Report Date</th>
+                        <td>@Model.ReportDate.ToString("dd MMM yyyy")</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        }
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-danger mt-4 text-center">
+                @ViewBag.Message
+            </div>
+        }
+
+    </div>
+
+</div>

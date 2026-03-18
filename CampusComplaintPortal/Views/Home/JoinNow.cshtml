@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+
+<style>
+    .register-box {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 40px;
+    }
+    .page-title {
+        color: #ff6a00;
+        font-weight: 700;
+    }
+    .btn-orange {
+        background: #ff6a00;
+        color: white;
+        border: none;
+    }
+    .btn-orange:hover {
+        background: #e65c00;
+        color: white;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="register-box">
+                <h3 class="text-center page-title mb-4"> Student Registration </h3>
+                <h2 class="text-center text-success bg-warning">@ViewBag.Message</h2>
+                <form method="post" action="/Home/JoinNow">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" name="Name" placeholder="Enter full name" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="Email" placeholder="Enter email" equired>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Course</label>
+                            <input type="text" class="form-control" name="Course" placeholder="Example: BCA / MCA" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Roll Number</label>
+                            <input type="text" class="form-control" name="RollNo" placeholder="Example: BCAXXX / MCAXXX" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Mobile Number</label>
+                            <input type="text" class="form-control" name="Mobile" placeholder="Enter mobile number" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="Password" placeholder="Create password" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-orange w-100" type="submit"> Create Account </button>
+                </form>
+                
+                <div class="text-center mt-3">
+                    <p class="text-muted">
+                        Already have an account?
+                        <a href="/Home/Login">Sign In</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+<style>
+    .contact-box {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 30px;
+    }
+    .contact-title {
+        color: #ff6a00;
+        font-weight: 700;
+    }
+    .info-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .info-icon {
+        font-size: 30px;
+        color: #ff6a00;
+        margin-bottom: 10px;
+    }
+    .btn-orange {
+        background: #ff6a00;
+        color: white;
+        border: none;
+    }
+    .btn-orange:hover {
+        background: #e65c00;
+        color: white;
+    }
+</style>
+<div class="container p-0">
+    <p class="bg-info bg-success">
+        @ViewBag.Message
+    </p>
+    <!-- Page Title -->
+    <div class="text-center mt-4">
+        <h2 class="contact-title">Contact & Enquiry</h2>
+        <p class="text-muted">
+            If you have any questions or need assistance regarding campus facilities,
+            please contact the maintenance department.
+        </p>
+    </div>
+    <div class="row mt-4">
+        <!-- Contact Information -->
+        <div class="col-md-4">
+            <div class="info-card text-center">
+                <div class="info-icon">📍</div>
+                <h5>Campus Address</h5>
+                <p class="text-muted">
+                    School of Management Sciences Varanasi, Uttar Pradesh
+                </p>
+            </div>
+            <div class="info-card text-center">
+                <div class="info-icon">📞</div>
+                <h5>Phone</h5>
+                <p class="text-muted">
+                    +91 9876543210
+                </p>
+            </div>
+            <div class="info-card text-center">
+                <div class="info-icon">✉</div>
+                <h5>Email</h5>
+                <p class="text-muted">
+                    maintenance@campus.com
+                </p>
+            </div>
+        </div>
+        <!-- Enquiry Form -->
+        <div class="col-md-8">
+            <div class="contact-box">
+                <h4 class="mb-4">Send Your Enquiry</h4>
+                <form action="/Home/Contact" method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" name="Name"/>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" name="Email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>Mobile Number</label>
+                            <input type="text" class="form-control" placeholder="Enter mobile number" name="Mobile" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Subject</label>
+                            <input type="text" class="form-control" placeholder="Enter subject" name="Subject" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Message</label>
+                        <textarea class="form-control" rows="4" placeholder="Write your message" name="Message" style="resize:none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-orange">
+                        Send Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
