@@ -9,8 +9,8 @@ namespace CampusComplaintPortal.Models
 {
     public class Mailer
     {
-        string MyEmail = "shivamji101202@gmail.com";
-        string MyMailPassword = "vezp ahya xxpo trgo";
+        string MyEmail = "your_email.com";
+        string MyMailPassword = "your_password";
 
         public bool SendMyEmail(string sendTo, string Subject, string Message)
         {
