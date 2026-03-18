@@ -29,23 +29,22 @@ Built using **ASP.NET MVC + SQL Server + Bootstrap**.
 
 ## 📸 Project Screenshots
 
-### 🏠 Home Page
+## 📸 Project Screenshots
 
-![Home](screenshorts/Home.png)
+### 🏠 Home Page
+![Home](screenshorts/About1.png)
 
 ### 🔐 Login Page
-
-![Login](Screenshots/login.png)
+![Login](screenshorts/About2.png)
 
 ### 📝 Complaint Form
-
-![Complaint](Screenshots/complaint.png)
+![Complaint](screenshorts/About3.png)
 
 ### 🛠️ Admin Dashboard
-
-![Admin](Screenshots/admin.png)
+![Admin](screenshorts/AdminDashboard.png)
 
 ### 📊 Manage Complaints
+![Dashboard](screenshorts/AdminComplaint.png)
 
 ![Dashboard](Screenshots/dashboard.png)
 
